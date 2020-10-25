@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<f:metadata>
+	<f:viewAction action="#{consultarBebida.consultar}" />
+	
+</f:metadata>
+
+<h:head>
+
+	<title>Relatório de bebidas em estoque - Depósito Primefaces</title>
+</h:head>
+
+<h:body>
+
+ 	<h:form>
+	    <p:menuButton value="Bebidas">
+	        <p:menuitem value="Cadastrar" action="cadastrarBebida.xhtml?faces-redirect=true" icon="pi pi-save"/>
+	        <p:menuitem value="Consultar" action="consultarBebidas.xhtml?faces-redirect=true" icon="pi pi-refresh"/>
+	        <p:separator />
+	        <p:menuitem value="Início" action="index.xhtml?faces-redirect=true" icon="pi pi-home"/>
+	    </p:menuButton>
+	</h:form>
+   
+	<h:form id="frm">			
+		<p:messages showDetail="false" showSummary="true" />
+
+		<p:dataTable value="#{consultarBebida.todosRegistros}" var="bebida" border="1" cellspacing="0" cellpadding="2" paginator="true" rows="5" paginatorPosition="bottom">
+
+			<f:facet name="header">
+          	  Consulta de Bebidas em estoque
+     	  	 </f:facet>
+
+			<p:column headerText="Descrição">
+				<h:outputText value="#{bebida.descricao}" />
+			</p:column>
+			<p:column headerText="Marca">
+				<h:outputText value="#{bebida.marca}" />
+			</p:column>
+			<p:column headerText="Valor">
+				<h:outputText value="#{bebida.valorUnitario}" />
+			</p:column>
+			<p:column headerText="Lote">
+				<h:outputText value="#{bebida.lote}" />
+			</p:column>
+			<p:column headerText="Quantidade">
+				<h:outputText value="#{bebida.qtdEstoque}" />
+			</p:column>
+		
+
+			<p:column width="70" style="center" headerText="Ações">
+				<p:button icon="ui-icon-pencil" title="Editar">
+					<f:param name="id" value="#{lancamento.id}" />
+				</p:button>
+				<p:commandButton icon="ui-icon-trash" title="Excluir">
+				</p:commandButton>
+			</p:column>
+
+
+		</p:dataTable>
+	</h:form>
+</h:body>
+</html>
