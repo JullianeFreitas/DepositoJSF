@@ -14,7 +14,7 @@ import service.BebidaService;
 public class ConsultarBebidaBean {
 
 	private List<Bebida> todosRegistros;
-	
+
 	public void consultar() {
 		todosRegistros = BebidaService.listarTodasBebidas();		 
 	}
@@ -28,5 +28,6 @@ public class ConsultarBebidaBean {
 		todosRegistros = bebidas ;
 	}
 	
+
 	
 }

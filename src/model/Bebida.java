@@ -1,13 +1,14 @@
 package model;
 
+
 public class Bebida {
-	
 	private String descricao, marca;
 	private Double valorUnitario;
-	private Integer lote, qtdEstoque;
+	private Integer lote, qtdEstoque, id;
 	
 	
-	public Bebida(String descricao, String marca, Double valorUnitario, Integer lote, Integer qtdEstoque) {
+	public Bebida(Integer id, String descricao, String marca, Double valorUnitario, Integer lote, Integer qtdEstoque) {
+		this.id = id;
 		this.descricao = descricao;
 		this.marca = marca;
 		this.valorUnitario = valorUnitario;
@@ -15,9 +16,7 @@ public class Bebida {
 		this.qtdEstoque = qtdEstoque;
 	}
 	
-	public Bebida() {
-		
-	}
+	public Bebida() {}
 
 	public String getDescricao() {
 		return descricao;
@@ -56,6 +55,14 @@ public class Bebida {
 
 	public void setQtdEstoque(Integer qtdEstoque) {
 		this.qtdEstoque = qtdEstoque;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
 	}
 	
 }
