@@ -7,11 +7,16 @@ import javax.faces.context.FacesContext;
 
 import org.primefaces.event.RowEditEvent;
 
+import model.Bebida;
+import service.BebidaService;
+
 @ManagedBean(name = "editarBebida")
 @SessionScoped
 public class EditarBebidaBean {
 
 	public void onRowEdit(RowEditEvent event) {
+	    Bebida bebida = (Bebida) event.getObject();
+	    BebidaService.editarBebida(bebida);
 		FacesMessage msg = new FacesMessage("Bebida editada","" );
         FacesContext.getCurrentInstance().addMessage("mensagens", msg);
 	}

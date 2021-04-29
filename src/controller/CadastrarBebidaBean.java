@@ -15,6 +15,7 @@ public class CadastrarBebidaBean {
 	private Bebida bebida;
 	private FacesMessage mensagem = null;
 	private FacesContext context = null;
+	
 	public void prepararCadastro() {
 			this.bebida = new Bebida();
 			if (mensagem != null) {
